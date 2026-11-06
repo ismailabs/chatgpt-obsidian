@@ -1,0 +1,9 @@
+{
+  "id": "chatgpt-obsidian",
+  "name": "ChatGPT",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Open the ChatGPT website in a sidebar view, with an external-browser fallback.",
+  "author": "chatgpt-obsidian contributors",
+  "isDesktopOnly": true
+}

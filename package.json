@@ -1,0 +1,16 @@
+{
+  "name": "chatgpt-obsidian",
+  "version": "1.0.0",
+  "description": "Open the ChatGPT website in an Obsidian sidebar view.",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "obsidian": "latest",
+    "typescript": "^5.6.0"
+  }
+}

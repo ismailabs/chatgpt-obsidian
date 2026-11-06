@@ -1,0 +1,122 @@
+/* ChatGPT for Obsidian - uses Obsidian theme variables so light/dark and custom themes just work. */
+
+.chatgpt-view.view-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.chatgpt-view .chatgpt-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2-1);
+  flex: 0 0 auto;
+  height: var(--header-height, 40px);
+  padding: 0 var(--size-4-2);
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+}
+
+.chatgpt-view .chatgpt-spacer {
+  flex: 1 1 auto;
+}
+
+.chatgpt-view .chatgpt-btn {
+  color: var(--text-muted);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.chatgpt-view .chatgpt-btn:hover:not(:disabled) {
+  color: var(--text-normal);
+}
+
+.chatgpt-view .chatgpt-btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.chatgpt-view .chatgpt-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
+}
+
+/* Page area */
+.chatgpt-view .chatgpt-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--background-primary);
+}
+
+.chatgpt-view .chatgpt-webview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  /* Hidden until the page is ready so a white flash never shows in dark mode. */
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.chatgpt-view .chatgpt-webview.is-ready {
+  opacity: 1;
+}
+
+/* Status / fallback panel */
+.chatgpt-view .chatgpt-status {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-4-2);
+  padding: var(--size-4-6);
+  text-align: center;
+  background: var(--background-primary);
+}
+
+.chatgpt-view .chatgpt-status.is-hidden {
+  display: none;
+}
+
+.chatgpt-view .chatgpt-status-icon {
+  color: var(--text-faint);
+}
+
+.chatgpt-view .chatgpt-status-icon .svg-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.chatgpt-view .chatgpt-status-title {
+  max-width: 100%;
+  font-size: var(--font-ui-medium);
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+
+.chatgpt-view .chatgpt-status-message {
+  max-width: 28em;
+  font-size: var(--font-ui-small);
+  line-height: var(--line-height-normal);
+  color: var(--text-muted);
+}
+
+.chatgpt-view .chatgpt-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--size-4-2);
+  margin-top: var(--size-4-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chatgpt-view .chatgpt-btn,
+  .chatgpt-view .chatgpt-webview {
+    transition: none;
+  }
+}
